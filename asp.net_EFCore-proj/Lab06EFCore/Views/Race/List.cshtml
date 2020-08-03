@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Race>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Races</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Races</h1>
+    @foreach (Race r in Model)
+    {
+        <h2>@r.Location</h2>
+        <table class="table table-sm table-striped table-bordered">
+            <tr>
+                <td>Sponsor Name</td>
+                <td>Sponsor City</td>
+            </tr>
+            <tr>
+                <td>@r.Sponsor.Name</td>
+                <td>@r.Sponsor.City</td>
+            </tr>
+        </table>
+        
+        <table class="table table-sm table-striped table-bordered">
+            @foreach (Run ru in r.RunList)
+            {
+                <tr>
+                    <td>Runner First Name</td>
+                    <td>Runner Last Name</td>
+                </tr>
+
+                <tr>
+                    <td>@ru.Runner.FirstName</td>
+                    <td>@ru.Runner.LastName</td>
+                </tr>
+            }
+        </table>
+    }
+</body>
+</html>
