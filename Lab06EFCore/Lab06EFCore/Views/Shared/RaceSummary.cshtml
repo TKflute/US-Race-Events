@@ -1,0 +1,37 @@
+﻿@model Race
+
+    <div class="well">
+        <h3>
+            <strong>@Model.Name</strong>
+            <span class="pull-right label label-primary">
+                Registration: @Model.RegistrationFee.ToString("C2")
+            </span>
+        </h3>
+        <h4>
+            <strong>@Model.Location</strong>
+        </h4>
+        <h4>
+            <strong>@Model.DistanceInMiles Miles</strong>
+        </h4>
+
+
+
+        <form id="@Model.RaceId" asp-action="AddToCart"
+              asp-controller="Cart" method="post">
+            <input type="hidden" asp-for="RaceId" />
+            <input type="hidden" name="returnURL" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+
+            <span class="lead">
+                @Model.Date.Date.ToString("d")
+                <button type="submit" class="btn btn-success btn-sm pull-right">
+                    Register for this event
+                </button>
+            </span>
+        </form>
+        <form id="@Model.RaceId" asp-action="Process" asp-controller="SponsorApplication" method="get">
+            <input type="hidden" asp-for="RaceId" />
+            <button type="submit" class="btn btn-success btn-sm">
+                Sponsor this Event
+            </button>
+        </form>
+    </div>

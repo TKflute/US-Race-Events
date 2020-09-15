@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Run>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Run Data</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <h3>Run Data from Past Events (2019)</h3>
+    <h4>We'd love to see you added this year!</h4>
+    <table class="table table-sm table-striped table-bordered">
+        <tr>
+            <td>Runner First Name</td>
+            <td>Runner Last Name</td>
+            <td>Race Event</td>
+            <td>Distance in Miles</td>
+            <td>Run Time (Min)</td>
+            <td>Miles/Hour Pace</td>
+        </tr>
+        @foreach (Run ru in Model)
+        {
+            <tr>
+                <td>@ru.Runner.FirstName</td>
+                <td>@ru.Runner.LastName</td>
+                <td>@ru.Race.Name</td>
+                <td>@ru.Race.DistanceInMiles</td>
+                <td>@ru.RunTime</td>
+                <td>@ru.AvgSpeedInMiles</td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

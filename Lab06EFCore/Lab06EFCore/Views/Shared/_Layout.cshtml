@@ -1,0 +1,25 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Race Events</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse" role="navigation">
+        <a class="navbar-brand" href="#">US RACE EVENTS DATA</a>
+        <div class="pull-right">
+            @await Component.InvokeAsync("CartSummary");
+        </div>
+    </div>
+
+    <div class="row panel">
+        <div id="categries" class="col-xs-3">
+            @await Component.InvokeAsync("NavigationMenu");
+        </div>
+        <div class="col-xs-8">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>
+

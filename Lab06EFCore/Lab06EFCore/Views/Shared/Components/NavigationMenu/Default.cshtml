@@ -1,0 +1,33 @@
+﻿@model IEnumerable<string>
+
+<a class="btn btn-block btn-default"
+   asp-action="List"
+   asp-controller="Race"
+   asp-route-category="">
+    Home
+</a>
+<a class="btn btn-block btn-default"
+   asp-action="Index"
+   asp-controller="About"
+   asp-route-category="">
+    About
+</a>
+<a class="btn btn-block btn-default"
+   asp-action="List"
+   asp-controller="Run"
+   asp-route-category="">
+    View Past Events and Runners
+</a>
+<br />
+<h4 class="text-center">Filter by Location</h4>
+@foreach (string category in Model)
+{
+    <a class="btn btn-block
+       @(category == ViewBag.SelectedCategory ? "btn-primary" : "btn-default")"
+       asp-action="List"
+       asp-controller="Race"
+       asp-route-category="@category"
+       asp-route-page="1">
+        @category
+    </a>
+}

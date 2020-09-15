@@ -1,0 +1,45 @@
+﻿@model Race
+
+@{
+    ViewBag.Title = "Edit Race";
+    Layout = "_AdminLayout";
+}
+
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="RaceId" />
+        <div class="form-group">
+            <label asp-for="Name"></label>
+            <div><span asp-validation-for="Name" class="text-danger"></span></div>
+            <input asp-for="Name" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Location"></label>
+            <div><span asp-validation-for="Location" class="text-danger"></span></div>
+            <input asp-for="Location" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Date"></label>
+            <div><span asp-validation-for="Date" class="text-danger"></span></div>
+            <input asp-for="Date" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="DistanceInMiles"></label>
+            <div><span asp-validation-for="DistanceInMiles" class="text-danger"></span></div>
+            <input asp-for="DistanceInMiles" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Category"></label>
+            <div><span asp-validation-for="Category" class="text-danger"></span></div>
+            <input asp-for="Category" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="RegistrationFee"></label>
+            <div><span asp-validation-for="RegistrationFee" class="text-danger"></span></div>
+            <input asp-for="RegistrationFee" class="form-control" />
+        </div>
+        <div class="text-center">
+            <button class="btn btn-primary" type="submit">Save</button>
+            <a asp-action="Index" class="btn btn-default">Cancel</a>
+        </div>
+    </form>
+

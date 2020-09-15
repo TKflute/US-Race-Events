@@ -1,0 +1,65 @@
+﻿@model SponsorApplication
+
+<h2>Apply to Sponsor an Event</h2>
+<p>Please enter your company details and estimated donation budget, and we will send you an email with next steps.
+    Thank you for supporting US Race Events!</p>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form id="@Model.RaceId" asp-action="Process" method="post">
+    <input type="hidden" asp-for="RaceId" />
+    <h3 class="alert-info">@ViewData["Race"]</h3>
+    <h3>Enter your information</h3>
+
+    <div class="form-group">
+        <label>Business Name:</label>
+        <input asp-for="BusinessName" class="form-control" />
+    </div>
+
+    <h3>Business Address</h3>
+    <div class="form-group">
+        <label>Line 1:</label>
+        <input asp-for="Line1" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Line 2:</label>
+        <input asp-for="Line1" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Line 3:</label>
+        <input asp-for="Line1" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>City:</label>
+        <input asp-for="City" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>State:</label>
+        <input asp-for="State" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Zip:</label>
+        <input asp-for="Zip" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Country:</label>
+        <input asp-for="Country" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Point of Contact Name:</label>
+        <input asp-for="POCName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Point of Contact Email:</label>
+        <input asp-for="POCEmail" class="form-control" />
+    </div>
+
+    <label asp-for="Budget">Select Donation Budget</label>
+    <select asp-for="Budget" asp-items="(SelectList)@ViewData["BudgetList"]" class="form-control"></select>
+
+    <div class="text-center">
+        <input class="btn btn-primary" type="submit" value="Submit Application" />
+    </div>
+</form>
